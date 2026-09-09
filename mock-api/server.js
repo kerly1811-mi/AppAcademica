@@ -111,7 +111,7 @@ server.get("/api/estudiantes/:id/horario", (req, res) => {
 // ---------------------------------------------------------------------
 server.use(router);
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3006;
 server.listen(PORT, () => {
   console.log(`Mock API escuchando en http://localhost:${PORT}`);
   console.log("Rutas custom: POST /login · GET /api/estudiantes/:id/calificaciones · GET /api/estudiantes/:id/horario");

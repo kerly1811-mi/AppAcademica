@@ -1,12 +1,11 @@
-const express = require("express");
 const jsonServer = require("json-server");
 const path = require("path");
 const server = jsonServer.create();
-server.use(express.json());
 const router = jsonServer.router(path.join(__dirname, "auth/db.json"));
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
+server.use(jsonServer.bodyParser); // Restore this
 
 server.post("/login", (req, res) => {
   console.log("Auth Server: Received POST /login", req.body);
