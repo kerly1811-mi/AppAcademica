@@ -1,0 +1,8 @@
+{
+  "usuarios": [
+    { "id": 1, "nombre": "Sofía Martinez", "iniciales": "SM", "correo": "estudiante@uta.edu.ec", "password": "campus2026", "rol": "estudiante", "periodo": "Periodo 2026 · Portal estudiantil" },
+    { "id": 2, "nombre": "Matias Morales", "iniciales": "MM", "correo": "docente@uta.edu.ec", "password": "campus2026", "rol": "docente", "periodo": "Periodo 2026 · Portal docente" },
+    { "id": 3, "nombre": "Administrador Campus", "iniciales": "AC", "correo": "admin@uta.edu.ec", "password": "campus2026", "rol": "admin", "periodo": "Periodo 2026 · Portal administrativo" },
+    { "id": 4, "nombre": "Carlos Ramirez", "iniciales": "CR", "correo": "carlos.ramirez@uta.edu.ec", "password": "campus2026", "rol": "estudiante", "periodo": "Periodo 2026 · Portal estudiantil" }
+  ]
+}

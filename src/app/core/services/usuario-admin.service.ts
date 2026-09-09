@@ -1,7 +1,7 @@
 import { Injectable, inject, computed } from "@angular/core";
 import { HttpClient, httpResource } from "@angular/common/http";
 import { firstValueFrom } from "rxjs";
-import { API_URL } from "../config/api.config";
+import { API_URLS } from "../config/api.config";
 import { UsuarioRecord, UsuarioFormValue } from "../models/models";
 
 function iniciales(nombre: string): string {
@@ -17,7 +17,7 @@ function iniciales(nombre: string): string {
 export class UsuarioAdminService {
   private readonly http = inject(HttpClient);
 
-  readonly usuarios = httpResource<UsuarioRecord[]>(() => `${API_URL}/usuarios`, { defaultValue: [] });
+  readonly usuarios = httpResource<UsuarioRecord[]>(() => `${API_URLS.auth}/usuarios`, { defaultValue: [] });
 
   /** Solo estudiantes — útil para poblar selects en los formularios de Calificaciones/Horario. */
   readonly estudiantes = computed(() => this.usuarios.value().filter((u) => u.rol === "estudiante"));
@@ -28,7 +28,7 @@ export class UsuarioAdminService {
       iniciales: iniciales(valor.nombre),
       password: valor.password ?? "",
     };
-    await firstValueFrom(this.http.post<UsuarioRecord>(`${API_URL}/usuarios`, payload));
+    await firstValueFrom(this.http.post<UsuarioRecord>(`${API_URLS.auth}/usuarios`, payload));
     this.usuarios.reload();
   }
 
@@ -38,12 +38,12 @@ export class UsuarioAdminService {
     const password = valor.password?.trim() ? valor.password : actual?.password ?? "";
 
     const payload = { ...valor, iniciales: iniciales(valor.nombre), password };
-    await firstValueFrom(this.http.put<UsuarioRecord>(`${API_URL}/usuarios/${id}`, payload));
+    await firstValueFrom(this.http.put<UsuarioRecord>(`${API_URLS.auth}/usuarios/${id}`, payload));
     this.usuarios.reload();
   }
 
   async eliminar(id: number): Promise<void> {
-    await firstValueFrom(this.http.delete(`${API_URL}/usuarios/${id}`));
+    await firstValueFrom(this.http.delete(`${API_URLS.auth}/usuarios/${id}`));
     this.usuarios.reload();
   }
 }

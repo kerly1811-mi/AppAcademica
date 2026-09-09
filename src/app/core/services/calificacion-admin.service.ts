@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { HttpClient, httpResource } from "@angular/common/http";
 import { firstValueFrom } from "rxjs";
-import { API_URL } from "../config/api.config";
+import { API_URLS } from "../config/api.config";
 import { CalificacionRecord, CalificacionFormValue } from "../models/models";
 
 @Injectable({ providedIn: "root" })
@@ -9,22 +9,22 @@ export class CalificacionAdminService {
   private readonly http = inject(HttpClient);
 
   /** Colección completa (todas las calificaciones, de todos los estudiantes). */
-  readonly calificaciones = httpResource<CalificacionRecord[]>(() => `${API_URL}/calificaciones`, {
+  readonly calificaciones = httpResource<CalificacionRecord[]>(() => `${API_URLS.calificaciones}/calificaciones`, {
     defaultValue: [],
   });
 
   async crear(valor: CalificacionFormValue): Promise<void> {
-    await firstValueFrom(this.http.post<CalificacionRecord>(`${API_URL}/calificaciones`, valor));
+    await firstValueFrom(this.http.post<CalificacionRecord>(`${API_URLS.calificaciones}/calificaciones`, valor));
     this.calificaciones.reload();
   }
 
   async actualizar(id: number, valor: CalificacionFormValue): Promise<void> {
-    await firstValueFrom(this.http.put<CalificacionRecord>(`${API_URL}/calificaciones/${id}`, valor));
+    await firstValueFrom(this.http.put<CalificacionRecord>(`${API_URLS.calificaciones}/calificaciones/${id}`, valor));
     this.calificaciones.reload();
   }
 
   async eliminar(id: number): Promise<void> {
-    await firstValueFrom(this.http.delete(`${API_URL}/calificaciones/${id}`));
+    await firstValueFrom(this.http.delete(`${API_URLS.calificaciones}/calificaciones/${id}`));
     this.calificaciones.reload();
   }
 }

@@ -1,0 +1,8 @@
+{
+  "cursos": [
+    { "id": 1, "nombre": "Base de Datos", "profesor": "Ing. Matias Morales", "categoria": "APE" },
+    { "id": 2, "nombre": "Computación Visual", "profesor": "Ing. Carlos Nuñez", "categoria": "Laboratorio" },
+    { "id": 3, "nombre": "Interacción Humano Computador", "profesor": "Ing. Duglas Bastidas", "categoria": "APE" },
+    { "id": 4, "nombre": "Programación Orientada a Objetos", "profesor": "Ing. Julio Martinez", "categoria": "Laboratorio" }
+  ]
+}

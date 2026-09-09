@@ -1,7 +1,7 @@
 import { Injectable, signal, computed } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable, tap } from "rxjs";
-import { API_URL } from "../config/api.config";
+import { API_URLS } from "../config/api.config";
 import { LoginResponse, Usuario } from "../models/models";
 
 const TOKEN_KEY = "campus_token";
@@ -25,7 +25,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(correo: string, password: string): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${API_URL}/login`, { correo, password }).pipe(
+    return this.http.post<LoginResponse>(`${API_URLS.auth}/login`, { correo, password }).pipe(
       tap((res) => {
         localStorage.setItem(TOKEN_KEY, res.token);
         localStorage.setItem(USUARIO_KEY, JSON.stringify(res.usuario));

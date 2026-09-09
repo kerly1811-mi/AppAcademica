@@ -1,0 +1,16 @@
+{
+  "calificaciones": [
+    { "id": 1, "estudianteId": 1, "cursoId": 1, "nota": 8.5 },
+    { "id": 2, "estudianteId": 1, "cursoId": 2, "nota": 8.5 },
+    { "id": 3, "estudianteId": 1, "cursoId": 3, "nota": 8.5 },
+    { "id": 4, "estudianteId": 1, "cursoId": 4, "nota": 8.5 },
+    { "id": 5, "estudianteId": 4, "cursoId": 1, "nota": 7.2 },
+    { "id": 6, "estudianteId": 4, "cursoId": 2, "nota": 9 }
+  ],
+  "cursos": [
+    { "id": 1, "nombre": "Base de Datos", "profesor": "Ing. Matias Morales", "categoria": "APE" },
+    { "id": 2, "nombre": "Computación Visual", "profesor": "Ing. Carlos Nuñez", "categoria": "Laboratorio" },
+    { "id": 3, "nombre": "Interacción Humano Computador", "profesor": "Ing. Duglas Bastidas", "categoria": "APE" },
+    { "id": 4, "nombre": "Programación Orientada a Objetos", "profesor": "Ing. Julio Martinez", "categoria": "Laboratorio" }
+  ]
+}
